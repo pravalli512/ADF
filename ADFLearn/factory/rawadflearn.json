@@ -1,0 +1,9 @@
+{
+	"name": "rawadflearn",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "583d0c0d-8a41-48ff-95e2-fab6fcafcec2",
+		"tenantId": "724b0424-f07b-4b02-9e80-6c3d90fffcc1"
+	}
+}

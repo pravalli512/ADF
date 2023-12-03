@@ -1,0 +1,50 @@
+{
+	"name": "dataflowactivity 1 _derivedcolumn",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "srcgen2csvformat",
+						"type": "DatasetReference"
+					},
+					"name": "sourcegen2"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "datasetsinkderivedcol",
+						"type": "DatasetReference"
+					},
+					"name": "sink"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derivedColumnactivity"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          PersonName as string,",
+				"          Country as string,",
+				"          Discipline as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> sourcegen2",
+				"sourcegen2 derive(PersonName = lower(PersonName)) ~> derivedColumnactivity",
+				"derivedColumnactivity sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink"
+			]
+		}
+	}
+}

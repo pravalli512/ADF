@@ -1,0 +1,27 @@
+{
+	"name": "sinkbinarydataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sinklinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"dire": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@dataset().dire",
+					"type": "Expression"
+				},
+				"fileSystem": "olympic"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

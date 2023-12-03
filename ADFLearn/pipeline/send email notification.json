@@ -1,0 +1,36 @@
+{
+	"name": "send email notification",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web activity fro logic app",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://snowflakeblobsink.blob.core.windows.net",
+					"method": "POST",
+					"body": {
+						"value": "{\n    \"Status\": \"@{pipeline().parameters.status}\",\n    \"PipelineName\": \"@{pipeline().Pipeline}\",\n    \"ExecutionTime\": \"@{pipeline().TriggerTime}\"\n}",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"status": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-12-02T19:01:19Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

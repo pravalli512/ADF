@@ -1,0 +1,66 @@
+{
+	"name": "copy activity from raw to source gen2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data from raw to source",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "BinarySource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "BinaryReadSettings"
+						}
+					},
+					"sink": {
+						"type": "BinarySink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "sourcebinarydataset",
+						"type": "DatasetReference",
+						"parameters": {
+							"dir": {
+								"value": "@concat('Date_Part =',formatDateTime(utcnow(),'yyyy-MM-dd'))",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "sinkbinarydataset",
+						"type": "DatasetReference",
+						"parameters": {
+							"dire": {
+								"value": "@concat('Date_Part =',formatDateTime(utcnow(),'yyyy-MM-dd'))",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-12-02T17:17:01Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

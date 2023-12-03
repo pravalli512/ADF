@@ -1,0 +1,11 @@
+{
+	"name": "AzureKeyVaultlinkedservice",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://sourcekv-adf.vault.azure.net/"
+		}
+	}
+}
