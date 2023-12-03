@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "rawadflearn"
+		},
+		"Newdatalinkservice_accountKey": {
+			"value": ""
+		},
+		"Snowflakelinkedservice_connectionString": {
+			"value": ""
+		},
+		"sinklinkedservice_accountKey": {
+			"value": ""
+		},
+		"sourcelinkedservice_accountKey": {
+			"value": ""
+		},
+		"AzureKeyVaultlinkedservice_properties_typeProperties_baseUrl": {
+			"value": "https://sourcekv-adf.vault.azure.net/"
+		},
+		"Newdatalinkservice_properties_typeProperties_url": {
+			"value": "https://pubgen2learning.dfs.core.windows.net/"
+		},
+		"sinklinkedservice_properties_typeProperties_url": {
+			"value": "https://sinkgen2learn.dfs.core.windows.net/"
+		},
+		"sinksnowflakelinkservice_sasUri": {
+			"value": ""
+		},
+		"sourcelinkedservice_properties_typeProperties_url": {
+			"value": "https://sourcegen2learn.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
